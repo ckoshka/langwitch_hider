@@ -22,7 +22,8 @@ const lookup = (freqsFor: PerLetterFrequencies) =>
 
 export const letterFreqs = (freqsFor: PerLetterFrequencies) =>
 	(word: string): [char, frequency, index][] =>
-		Array.from(word)
+		[...new Intl.Segmenter(undefined, {granularity: "grapheme"}).segment(word)]
+			.map(c => c.segment)
 			.map(
 				(l, i) =>
 					[l, lookup(freqsFor)(i)(l as char), i] as [
