@@ -6,14 +6,10 @@ import { openLinesFromFile } from "https://cdn.jsdelivr.net/gh/ckoshka/gen/impur
 import { dumpHider } from "../serialise/dump_msgpack.ts";
 import { readLines } from "https://deno.land/std@0.157.0/io/mod.ts";
 
-type Args = {
-	filename: string; // assume each word is on a separate line, and has already been preprocessed
-};
-
 aPipe([
 	() => Deno.stdin,
 	readLines,
 	makeHider,
 	dumpHider,
-	Deno.stdout.write.bind(Deno.stdout),
+	(data: Uint8Array) => Deno.writeFile(parse(Deno.args)["out"], data),
 ])();
