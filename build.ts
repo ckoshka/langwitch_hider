@@ -22,8 +22,7 @@ const lookup = (freqsFor: PerLetterFrequencies) =>
 
 export const letterFreqs = (freqsFor: PerLetterFrequencies) =>
 	(word: string): [char, frequency, index][] =>
-		[...new Intl.Segmenter(undefined, {granularity: "grapheme"}).segment(word)]
-			.map(c => c.segment)
+		Array.from(word)
 			.map(
 				(l, i) =>
 					[l, lookup(freqsFor)(i)(l as char), i] as [
@@ -37,7 +36,7 @@ export const letterFreqs = (freqsFor: PerLetterFrequencies) =>
 export const createLookupTableFromWords = async (
 	words: AsyncIterableIterator<string>,
 ) => {
-	const table = R.range(1, 40).map(() => [] as word[]);
+	const table = R.range(1, 42).map(() => [] as word[]);
 	for await (const word of words) {
 		if (word.length < 40 && word.length > 0) {
 			table[word.length].push(word as word); // do we actually care about what the iterator is?

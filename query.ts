@@ -40,3 +40,5 @@ export const makeHider = R.pipe(
 	createLookupTableFromWords,
 	(p) => p.then(createHiderFromTable),
 );
+
+export type Hider = ReturnType<typeof createHiderFromTable>;

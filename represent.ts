@@ -2,10 +2,7 @@ import { punctuation } from "./deps.ts";
 
 export const reveal = (letterPos: number[]) =>
 	(s: string) =>
-		[...new Intl.Segmenter(undefined, { granularity: "grapheme" }).segment(
-			s,
-		)]
-			.map((c) => c.segment)
+		Array.from(s)
 			.map((c, i) =>
 				letterPos.includes(i) ? c : punctuation.has(c) ? c : "•"
 			)

@@ -1,5 +1,5 @@
-import { createHiderFromTable } from "./query.ts";
-import { aPipe, cache, R, unpack } from "./deps.ts";
+import { createHiderFromTable } from "../query.ts";
+import { aPipe, cache, R, unpack } from "../deps.ts";
 
 export const hiderFromMsgpackUrl = aPipe([
 	cache,
@@ -12,6 +12,6 @@ export const hiderFromMsgpackUrl = aPipe([
 export const international = () =>
 	Promise.resolve(
 		hiderFromMsgpackUrl(
-			`https://github.com/ckoshka/langwitch_hider/raw/master/assets/frequency_table.msgpack`,
+			`https://github.com/ckoshka/langwitch_hider/raw/master/assets/freqtable_v2.msgpack`,
 		),
 	); // needed for correct type inference
