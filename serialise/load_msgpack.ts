@@ -17,3 +17,4 @@ export const international = () =>
 			`complete/langwitch_hider/assets/freqtable_v2.msgpack`,
 		),
 	); // needed for correct type inference
+	// change this back to cache

@@ -42,3 +42,6 @@ export const makeHider = R.pipe(
 );
 
 export type Hider = ReturnType<typeof createHiderFromTable>;
+export type HiderEffect = {
+	hider: ReturnType<typeof createHiderFromTable>;
+}
