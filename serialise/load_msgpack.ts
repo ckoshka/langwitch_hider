@@ -14,7 +14,7 @@ export const hiderFromMsgpackUrl = aPipe([
 export const international = () =>
 	Promise.resolve(
 		hiderFromMsgpackUrl(
-			`https://github.com/ckoshka/langwitch_hider/raw/master/assets/freqtable_v2.msgpack`,
+			`https://github.com/ckoshka/langwitch_hider/raw/master/assets/frequency_table.msgpack`,
 		),
 	); // needed for correct type inference
 	// change this back to cache
